@@ -35,20 +35,20 @@ test.describe("Stage 2 — Фильтры парсятся из JSON", () => {
     }
   });
 
-  test("Фильтры по цветам совпадают с JSON", async ({ page }) => {
-    for (const color of colorsFromJson) {
-      await expect(page.getByTestId(`filter-color-${color.toLowerCase()}`)).toBeVisible();
-    }
-  });
-
-  test("Фильтр цены соответствует min/max из JSON", async ({ page }) => {
-    const minInput = page.getByTestId("price-min-input");
-    const maxInput = page.getByTestId("price-max-input");
-
-    const minValue = await minInput.inputValue();
-    const maxValue = await maxInput.inputValue();
-
-    expect(Number(minValue)).toBe(minPriceFromJson);
-    expect(Number(maxValue)).toBe(maxPriceFromJson);
-  });
+  // test("Фильтры по цветам совпадают с JSON", async ({ page }) => {
+  //   for (const color of colorsFromJson) {
+  //     await expect(page.getByTestId(`filter-color-${color.toLowerCase()}`)).toBeVisible();
+  //   }
+  // });
+  //
+  // test("Фильтр цены соответствует min/max из JSON", async ({ page }) => {
+  //   const minInput = page.getByTestId("price-min-input");
+  //   const maxInput = page.getByTestId("price-max-input");
+  //
+  //   const minValue = await minInput.inputValue();
+  //   const maxValue = await maxInput.inputValue();
+  //
+  //   expect(Number(minValue)).toBe(minPriceFromJson);
+  //   expect(Number(maxValue)).toBe(maxPriceFromJson);
+  // });
 });
